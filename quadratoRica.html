@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+    
+    body{
+      margin: 0;
+      display: flex;
+    }
+    #container {
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background: yellowgreen no-repeat center;
+    }
+    #animate {
+      top: 0;
+      left: 0;
+      color: white;
+      background: url("pig.jpeg") no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+    }
+    #gameOvertxt {
+      z-index: 100;
+      opacity: 0;
+      background: url("gameover.jpeg") no-repeat center;
+      background-size: contain;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 200px;
+      transition: opacity 1s;
+    }
+    #gameover {
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+    }
+    #pistol {
+      background: url("aircraft.png") no-repeat;
+      transform: rotate(90deg);
+      background-size: contain;
+      left: 150px;
+      bottom: 0;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+    }
+    
+    .munizioni {
+      background: url("pig.jpeg") no-repeat;
+      background-size: contain;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 370px;
+      left: 190px;
+      
+    }
+    #shoot {
+      display: block;
+    }
+    #reload{
+      transition:all 1s;
+    }
+    /*---------------*/
+    #container2{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 400px;
+      height: 100px;
+      background-color: gray;
+    }
+    #shoot{
+      width: 90px;
+      height: 50px;
+      background-color: transparent;
+      
+    }
+    #reload{
+      background-color: transparent;
+    }
+    #back{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+    }
+    #rim{
+      position: absolute;
+      top: 0;
+      left: 300px;
+    }
+    /*leaderboard*/
+
+.head{
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 7px;
+    border-radius: 10px 10px 0 0;
+    font-size: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.head img{
+    width: 80px;
+}
+.container{
+    backdrop-filter: blur(6px);
+    min-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px -7px blue;
+
+}
+.inputContainer{
+    padding: 0 75px;
+}
+.inputContainer div{
+    margin-bottom: 7px;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+}
+li
+{
+    margin: 0;
+	padding: 18px 0 15px 65px;
+	list-style: none;
+	background-image: url("https://www.cticontrol.com/wp-content/uploads/2019/03/porcino-transicion.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 50px;
+}
+#user{
+    width: 70%;
+    height: 35px;
+    border: 2px solid blue;
+    border-right: none;
+    border-radius: 50px 0px 0px 50px;
+    font-size: 15px;
+    padding-left: 15px;
+    transition: all 0.3s;
+    
+}
+#user::placeholder{
+    font-size: 15px;
+}
+#user:focus{
+    box-shadow: 0px 0px 12px -5px blue;
+}
+#user:hover{
+    box-shadow: 0px 0px 12px -5px blue;
+}
+
+.inputs{
+  transition: all 0.3s;
+}
+.s{
+    background-color: blue;
+    border-radius: 0px 50px 50px 0px;
+    border: 2px solid blue;
+    color: white;
+    height: 41px;
+    border-left: none;
+    transition: 0.3s;
+    box-shadow: 0px 0px 12px -5px blue;
+}
+.s:hover{
+    background-color: rgb(0, 136, 255);
+}
+
+  </style>
+  </head>
+  <body>
+  <div id="pezzouno">
+    <div id="container">
+      <div id="rim">
+        <p><button id="using" onclick="myMove()">Guest</button></p>
+        <div>Colpi rimasti <span id="rimasti">3</span>/3</div>
+      </div>
+          
+
+      <div id="animate"></div>
+      <span id="gameOvertxt"></span>
+      <div class="munizioni"></div>
+      <div class="munizioni"></div>
+      <div class="munizioni"></div>
+    </div>
+    <div id="container2">
+      <div id="pistol">
+        <div id="back">      
+          <button id="shoot" onclick="myMove2(0)">Shoot</button>
+          <button id="reload" onclick="myMove2(1)">reload</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div>
+
+  <div class="name">
+      <div class="head">
+          <img src="headPig.png" alt="">
+          <span>Players</span></div>
+      <div style="margin: 0 30px">
+         <ul id="list">
+          
+          </ul> 
+      </div>
+      
+      <div class="inputContainer">
+          <div><input class="inputs" type="text" placeholder="Add Player..."> <button class = "s" onclick="addWord()">Enter</button></div>
+          <div><input class="inputs" type="text" placeholder="Use Player..."> <button class = "s" onclick="useWord()">Enter</button></div>
+
+  </div>  </div>
+</div>
+<div style="background-color: lightgray; height: 140px; margin-left: 5px;padding: 5px;"><h3>Commands</h3>Space to shoot<br>P to play<br>R for reload
+</div>
+<script src="app.js"></script>
+    
+  </body>
+</html>
