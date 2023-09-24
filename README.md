@@ -1,5 +1,6 @@
 # Colpisci il bersaglio
 Link [Demo](https://raw.githack.com/AndrianoRica/spaceInvaders/main/quadratoRica.html)
+<br /><br />
 La consegna finale prevede la possibilità di colpire un oggetto in movimento che si abbassa con un percorso a spirale, utilizzando gli esercizi fin qui consegnati. 
 Si prevedono varie possibilità:
   Inserimento del nome del giocatore
